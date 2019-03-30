@@ -1,8 +1,9 @@
-package Calc;
+package Calculadora;
 
 public class Metodos {
 	private double num1;
 	private double num2;
+	
 	public double getNum1() {
 		return num1;
 	}
@@ -15,6 +16,7 @@ public class Metodos {
 	public void setNum2(double num2) {
 		this.num2 = num2;
 	}
+	
 	public double soma() {
 		return (this.getNum1()+this.getNum2());
 	}

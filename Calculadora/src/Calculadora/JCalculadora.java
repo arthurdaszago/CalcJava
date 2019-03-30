@@ -1,4 +1,4 @@
-package Calc;
+package Calculadora;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -6,6 +6,8 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
 
 public class JCalculadora extends JFrame {
 
@@ -35,8 +37,12 @@ public class JCalculadora extends JFrame {
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		
+		JLabel lblCalculadora = new JLabel("Calculadora");
+		lblCalculadora.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblCalculadora.setBounds(165, 0, 202, 33);
+		contentPane.add(lblCalculadora);
 	}
-
 }
