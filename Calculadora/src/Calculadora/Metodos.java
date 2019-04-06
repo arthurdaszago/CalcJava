@@ -20,4 +20,8 @@ public class Metodos {
 	public double soma() {
 		return (this.getNum1()+this.getNum2());
 	}
+	public double subtracao() {
+		return (this.getNum1()-this.getNum2());
+	}
+	
 }
