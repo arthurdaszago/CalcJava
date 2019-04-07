@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="javax.swing.JTextField"/>
+<fullyQualifiedTypeName name="Calculadora.Metodos"/>
+<fullyQualifiedTypeName name="javax.swing.event.PopupMenuEvent"/>
+<fullyQualifiedTypeName name="javax.swing.event.PopupMenuListener"/>
 </qualifiedTypeNameHistroy>

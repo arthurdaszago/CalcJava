@@ -29,4 +29,7 @@ public class Metodos {
 	public double divisão() {
 		return (this.getNum1()/this.getNum2());
 	}
+	public double potenciacao() {
+		return (Math.pow(this.getNum1(), this.getNum2()));
+	}
 }

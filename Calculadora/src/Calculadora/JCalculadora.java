@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.PopupMenuEvent;
+import javax.swing.event.PopupMenuListener;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JComboBox;
@@ -23,7 +25,8 @@ public class JCalculadora extends JFrame {
 	private JTextField tf1;
 	private JTextField tf2;
 	private JTextField tfResult;
-
+	
+	Metodos ca= new Metodos();
 	/**
 	 * Launch the application.
 	 */
@@ -39,7 +42,6 @@ public class JCalculadora extends JFrame {
 			}
 		});
 	}
-
 	/**
 	 * Create the frame.
 	 */
@@ -57,11 +59,11 @@ public class JCalculadora extends JFrame {
 		contentPane.add(lblCalculadora);
 		
 		JLabel lblNmero = new JLabel("N\u00FAmero 1");
-		lblNmero.setBounds(10, 90, 46, 14);
+		lblNmero.setBounds(10, 90, 66, 14);
 		contentPane.add(lblNmero);
 		
 		JLabel lblNmero_1 = new JLabel("N\u00FAmero 2");
-		lblNmero_1.setBounds(10, 132, 46, 14);
+		lblNmero_1.setBounds(10, 132, 66, 14);
 		contentPane.add(lblNmero_1);
 		
 		tf1 = new JTextField();
@@ -75,8 +77,34 @@ public class JCalculadora extends JFrame {
 		tf2.setColumns(10);
 		
 		JComboBox cbOperacoes = new JComboBox();
+		cbOperacoes.addPopupMenuListener(new PopupMenuListener() {
+			public void popupMenuCanceled(PopupMenuEvent arg0) {
+			}
+			public void popupMenuWillBecomeInvisible(PopupMenuEvent arg0) {
+				double num1;
+				double num2;
+				num1=Double.parseDouble(tf1.getText());
+				num2=Double.parseDouble(tf2.getText());
+				ca.setNum1(num1);
+				ca.setNum2(num2);
+				
+				if(cbOperacoes.getSelectedIndex()==0) {
+					tfResult.setText(""+ca.soma());
+				}else if(cbOperacoes.getSelectedIndex()==1) {
+					tfResult.setText(""+ca.subtracao());
+				}
+				else if(cbOperacoes.getSelectedIndex()==5) {
+					tfResult.setText(""+ca.potenciacao());
+				}
+			}
+			@Override
+			public void popupMenuWillBecomeVisible(PopupMenuEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		cbOperacoes.setModel(new DefaultComboBoxModel(new String[] {"Soma", "Subtra\u00E7\u00E3o", "Multiplica\u00E7\u00E3o", "Divis\u00E3o", "Potencia\u00E7\u00E3o", "Radicia\u00E7\u00E3o"}));
-		cbOperacoes.setBounds(10, 48, 162, 20);
+		cbOperacoes.setBounds(216, 72, 162, 20);
 		contentPane.add(cbOperacoes);
 		
 		JButton jbResultado = new JButton("=");
