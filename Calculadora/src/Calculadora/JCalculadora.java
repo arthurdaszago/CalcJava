@@ -26,7 +26,7 @@ public class JCalculadora extends JFrame {
 	private JTextField tf2;
 	private JTextField tfResult;
 	
-	Metodos ca= new Metodos();
+	Metodos ca = new Metodos();
 	/**
 	 * Launch the application.
 	 */
@@ -47,7 +47,7 @@ public class JCalculadora extends JFrame {
 	 */
 	public JCalculadora() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 212, 259);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -55,7 +55,7 @@ public class JCalculadora extends JFrame {
 		
 		JLabel lblCalculadora = new JLabel("Calculadora");
 		lblCalculadora.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblCalculadora.setBounds(165, 0, 202, 33);
+		lblCalculadora.setBounds(25, 5, 202, 33);
 		contentPane.add(lblCalculadora);
 		
 		JLabel lblNmero = new JLabel("N\u00FAmero 1");
@@ -77,10 +77,13 @@ public class JCalculadora extends JFrame {
 		tf2.setColumns(10);
 		
 		JComboBox cbOperacoes = new JComboBox();
-		cbOperacoes.addPopupMenuListener(new PopupMenuListener() {
-			public void popupMenuCanceled(PopupMenuEvent arg0) {
-			}
-			public void popupMenuWillBecomeInvisible(PopupMenuEvent arg0) {
+		cbOperacoes.setModel(new DefaultComboBoxModel(new String[] {"Soma", "Subtra\u00E7\u00E3o", "Multiplica\u00E7\u00E3o", "Divis\u00E3o", "Potencia\u00E7\u00E3o", "Radicia\u00E7\u00E3o"}));
+		cbOperacoes.setBounds(10, 48, 162, 20);
+		contentPane.add(cbOperacoes);
+		
+		JButton jbResultado = new JButton("=");
+		jbResultado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
 				double num1;
 				double num2;
 				num1=Double.parseDouble(tf1.getText());
@@ -92,24 +95,15 @@ public class JCalculadora extends JFrame {
 					tfResult.setText(""+ca.soma());
 				}else if(cbOperacoes.getSelectedIndex()==1) {
 					tfResult.setText(""+ca.subtracao());
-				}
-				else if(cbOperacoes.getSelectedIndex()==5) {
+				}else if(cbOperacoes.getSelectedIndex()==2) {
+					tfResult.setText(""+ca.multiplicacao());
+				}else if(cbOperacoes.getSelectedIndex()==3) {
+					tfResult.setText(""+ca.divisão());
+				}else if(cbOperacoes.getSelectedIndex()==4) {
 					tfResult.setText(""+ca.potenciacao());
+				}else if(cbOperacoes.getSelectedIndex()==5) {
+					tfResult.setText(""+ca.radiciacao());
 				}
-			}
-			@Override
-			public void popupMenuWillBecomeVisible(PopupMenuEvent arg0) {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-		cbOperacoes.setModel(new DefaultComboBoxModel(new String[] {"Soma", "Subtra\u00E7\u00E3o", "Multiplica\u00E7\u00E3o", "Divis\u00E3o", "Potencia\u00E7\u00E3o", "Radicia\u00E7\u00E3o"}));
-		cbOperacoes.setBounds(216, 72, 162, 20);
-		contentPane.add(cbOperacoes);
-		
-		JButton jbResultado = new JButton("=");
-		jbResultado.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
 		jbResultado.setBounds(10, 170, 46, 23);
@@ -117,7 +111,7 @@ public class JCalculadora extends JFrame {
 		
 		tfResult = new JTextField();
 		tfResult.setEditable(false);
-		tfResult.setBounds(86, 170, 86, 20);
+		tfResult.setBounds(66, 170, 106, 20);
 		contentPane.add(tfResult);
 		tfResult.setColumns(10);
 	}

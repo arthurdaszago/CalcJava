@@ -32,4 +32,7 @@ public class Metodos {
 	public double potenciacao() {
 		return (Math.pow(this.getNum1(), this.getNum2()));
 	}
+	public double radiciacao() {
+		return (Math.pow(this.getNum1(), 1.0/this.getNum2()));
+	}
 }
