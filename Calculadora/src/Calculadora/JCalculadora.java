@@ -9,12 +9,20 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.JComboBox;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JScrollPane;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class JCalculadora extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField tf1;
 	private JTextField tf2;
+	private JTextField tfResult;
 
 	/**
 	 * Launch the application.
@@ -49,21 +57,40 @@ public class JCalculadora extends JFrame {
 		contentPane.add(lblCalculadora);
 		
 		JLabel lblNmero = new JLabel("N\u00FAmero 1");
-		lblNmero.setBounds(10, 46, 46, 14);
+		lblNmero.setBounds(10, 90, 46, 14);
 		contentPane.add(lblNmero);
 		
 		JLabel lblNmero_1 = new JLabel("N\u00FAmero 2");
-		lblNmero_1.setBounds(10, 88, 46, 14);
+		lblNmero_1.setBounds(10, 132, 46, 14);
 		contentPane.add(lblNmero_1);
 		
 		tf1 = new JTextField();
-		tf1.setBounds(86, 44, 86, 20);
+		tf1.setBounds(86, 88, 86, 20);
 		contentPane.add(tf1);
 		tf1.setColumns(10);
 		
 		tf2 = new JTextField();
-		tf2.setBounds(86, 85, 86, 20);
+		tf2.setBounds(86, 129, 86, 20);
 		contentPane.add(tf2);
 		tf2.setColumns(10);
+		
+		JComboBox cbOperacoes = new JComboBox();
+		cbOperacoes.setModel(new DefaultComboBoxModel(new String[] {"Soma", "Subtra\u00E7\u00E3o", "Multiplica\u00E7\u00E3o", "Divis\u00E3o", "Potencia\u00E7\u00E3o", "Radicia\u00E7\u00E3o"}));
+		cbOperacoes.setBounds(10, 48, 162, 20);
+		contentPane.add(cbOperacoes);
+		
+		JButton jbResultado = new JButton("=");
+		jbResultado.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		jbResultado.setBounds(10, 170, 46, 23);
+		contentPane.add(jbResultado);
+		
+		tfResult = new JTextField();
+		tfResult.setEditable(false);
+		tfResult.setBounds(86, 170, 86, 20);
+		contentPane.add(tfResult);
+		tfResult.setColumns(10);
 	}
 }
