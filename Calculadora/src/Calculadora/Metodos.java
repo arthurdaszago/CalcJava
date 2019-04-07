@@ -26,4 +26,7 @@ public class Metodos {
 	public double multiplicacao() {
 		return (this.getNum1()*this.getNum2());
 	}
+	public double divisão() {
+		return (this.getNum1()/this.getNum2());
+	}
 }
