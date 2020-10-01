@@ -1,2 +1,2 @@
 # CalcJava
-Projeto de Engenharia
+Projeto desenvolvido na matéria de Engenharia de Software no ensino técnico
